@@ -89,18 +89,18 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
 
-#   auto_ru_worker:
-#     build: yandex_parser
-#     links:
-#       - selenium-router
-#     shm_size: 2gb
-#     depends_on:
-#       - selenium-router
-#     restart: always
-#     environment:
-#       - STARTING_PAGE=market.yandex.ru
-#       - ROUTER=localhost
-#       - ROUTER_PORT=4444
-#       - APIKEY_2CAPTCHA=480b03b270dfb2725f9e6023f0554efc
-#     ports:
-#       - "5000:5000"
+  auto_ru_worker:
+    build: yandex_parser
+    links:
+      - selenium-router
+    shm_size: 2gb
+    depends_on:
+      - selenium-router
+    restart: always
+    environment:
+      - STARTING_PAGE=market.yandex.ru
+      - ROUTER=51.250.75.50
+      - ROUTER_PORT=4444
+      - APIKEY_2CAPTCHA=480b03b270dfb2725f9e6023f0554efc
+    ports:
+      - "80:80"
